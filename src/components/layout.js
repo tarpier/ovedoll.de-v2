@@ -7,9 +7,10 @@ class Template extends React.Component {
   render() {
     const { location, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
+
     let header
 
-    if (location.pathname === rootPath) {
+    /* if (location.pathname === rootPath) {
       header = (
         <h1
           style={{
@@ -51,16 +52,9 @@ class Template extends React.Component {
           </Link>
         </h3>
       )
-    }
+    } */
     return (
-      <div
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
+      <div>
         {header}
         {children}
       </div>
