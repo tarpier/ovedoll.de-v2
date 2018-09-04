@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import { Box } from 'rebass'
 
 import Hero from '../components/Hero'
-import Bio from '../components/Bio'
+import Bio from '../components/AboutMe'
 import Layout from '../components/layout'
 import { rhythm } from '../utils/typography'
 
@@ -26,12 +26,16 @@ class BlogIndex extends React.Component {
           title={siteTitle}
         />
         <Hero
-          typeStrings={['1bc', 'hfhfhf']}
-          heroImage={this.props.data.hero.childImageSharp.fluid}
+          typeStrings={['websites', 'mobile apps', 'webapps', 'hot sh*t']}
+          heroImage={get(this, 'props.data.hero.childImageSharp.fluid')}
         />
-        <Box px={3} py={4} color="white" bg="blue">
-          Hello
-        </Box>
+        <Bio
+          aboutContent={get(this, 'props.data.aboutMe.html')}
+          profileImage={get(
+            this,
+            'props.data.profilePic.childImageSharp.fluid'
+          )}
+        />
       </Layout>
     )
   }
@@ -49,11 +53,22 @@ export const pageQuery = graphql`
         }
       }
     }
+    profilePic: file(relativePath: { eq: "ovedoll.jpg" }) {
+      childImageSharp {
+        fluid {
+          sizes
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     site {
       siteMetadata {
         title
         description
       }
+    }
+    aboutMe: markdownRemark(fields: { slug: { eq: "/index/about/" } }) {
+      html
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {

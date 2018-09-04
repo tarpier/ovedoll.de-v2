@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import 'typeface-rubik'
 
 import { rhythm, scale } from '../utils/typography'
 

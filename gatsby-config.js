@@ -21,6 +21,7 @@ module.exports = {
         name: 'images',
       },
     },
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -45,7 +46,13 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: true,
+        ssr: true,
+      },
+    },
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-google-analytics`,
