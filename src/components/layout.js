@@ -2,7 +2,16 @@ import React from 'react'
 import { Link } from 'gatsby'
 import 'typeface-rubik'
 
-import { rhythm, scale } from '../utils/typography'
+import { Provider } from 'rebass'
+import { injectGlobal } from 'styled-components'
+
+injectGlobal`
+  * { 
+  box-sizing: border-box;
+  font-family: rubik;
+  }
+  body { margin: 0;
+   }`
 
 class Template extends React.Component {
   render() {
@@ -55,10 +64,12 @@ class Template extends React.Component {
       )
     } */
     return (
-      <div>
-        {header}
-        {children}
-      </div>
+      <Provider>
+        <div>
+          {header}
+          {children}
+        </div>
+      </Provider>
     )
   }
 }

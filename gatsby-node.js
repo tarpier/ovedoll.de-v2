@@ -7,7 +7,6 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.js')
     resolve(
       graphql(
         `
@@ -24,6 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
                   frontmatter {
                     title
                     render
+                    template
                   }
                 }
               }
@@ -38,7 +38,6 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Create blog posts pages.
         const posts = result.data.allMarkdownRemark.edges
-
         _.each(posts, (post, index) => {
           const previous =
             index === posts.length - 1 ? null : posts[index + 1].node
@@ -48,10 +47,19 @@ exports.createPages = ({ graphql, actions }) => {
           if (post.node.frontmatter.render === false) {
             return
           }
+          console.log(post)
+          // resolve custom templates for pages
+          const templatePath = path.resolve(
+            `./src/templates/${
+              _.get(post, 'node.frontmatter.template')
+                ? post.node.frontmatter.template
+                : 'blog-post'
+            }.js`
+          )
 
           createPage({
             path: post.node.fields.slug,
-            component: blogPost,
+            component: templatePath,
             context: {
               slug: post.node.fields.slug,
               previous,

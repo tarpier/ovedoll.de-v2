@@ -2,12 +2,13 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import { Box } from 'rebass'
 
 import Hero from '../components/Hero'
 import Bio from '../components/AboutMe'
+import BottomNavigation from '../components/BottomNavigation'
+import Contact from '../components/Contact'
 import Layout from '../components/layout'
-import { rhythm } from '../utils/typography'
+import colors from '../utils/colors'
 
 class BlogIndex extends React.Component {
   render() {
@@ -17,7 +18,6 @@ class BlogIndex extends React.Component {
       'props.data.site.siteMetadata.description'
     )
 
-    console.log(this.props)
     return (
       <Layout location={this.props.location}>
         <Helmet
@@ -25,6 +25,7 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
+        <div style={{ height: '4px', backgroundColor: colors.primary }} />
         <Hero
           typeStrings={['websites', 'mobile apps', 'webapps', 'hot sh*t']}
           heroImage={get(this, 'props.data.hero.childImageSharp.fluid')}
@@ -36,6 +37,8 @@ class BlogIndex extends React.Component {
             'props.data.profilePic.childImageSharp.fluid'
           )}
         />
+        <Contact />
+        <BottomNavigation />
       </Layout>
     )
   }

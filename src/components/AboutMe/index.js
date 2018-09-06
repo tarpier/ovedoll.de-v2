@@ -1,25 +1,39 @@
 import React from 'react'
 import Image from 'gatsby-image'
 import { Box, Flex } from 'rebass'
-import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+import { Container } from '../HelperComponents'
+
+const Avatar = styled.div`
+  border-radius: 25px;
+`
+
+Container.defaultProps = {
+  mx: 'auto',
+}
+
+const ImageContainer = styled(Image)`
+  border-radius: 100%;
+  width: 75%;
+  height: 75%;
+`
 
 const AboutMe = ({ aboutContent, profileImage } = props) => (
-  <Flex>
-    <Box width={[1 / 2]}>
-      <div dangerouslySetInnerHTML={{ __html: aboutContent }} />
+  <Container flexWrap="wrap" flexDirection={['column-reverse', 'row']}>
+    <Box px={'5px'} width={[1, 1 / 2]}>
+      <Box py={[0, 30]} dangerouslySetInnerHTML={{ __html: aboutContent }} />
     </Box>
-    <Box width={[1 / 2]}>
-      <Image alt="profile picture" sizes={profileImage} />
+    <Box px={'5px'} py={[0, 10]} width={[1, 1 / 2]} alignSelf="center">
+      <ImageContainer alt="profile picture" sizes={profileImage} />
     </Box>
-  </Flex>
+  </Container>
 )
 
-export const markdownSectionFrontmatterFragment = graphql`
-  fragment MarkdownFrontmatter on MarkdownRemark {
-    frontmatter {
-      section
-    }
-  }
-`
+AboutMe.propTypes = {
+  aboutContent: PropTypes.string,
+  profileImage: PropTypes.object,
+}
 
 export default AboutMe
