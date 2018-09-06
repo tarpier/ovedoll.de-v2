@@ -18,7 +18,7 @@ const BottomNavigation = () => (
     <Container>
       <ul>
         {links.map(link => (
-          <li>
+          <li key={link.name}>
             <Link to={link.href}>{link.name}</Link>
           </li>
         ))}

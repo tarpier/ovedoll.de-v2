@@ -5,14 +5,16 @@
 ---
 
 <h2>Datenschutzerklärung</h2>
-<h3 id="dsg-general-intro"></h3><p>Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten (nachfolgend kurz „Daten“) im Rahmen der Erbringung unserer Leistungen sowie innerhalb unseres Onlineangebotes und der mit ihm verbundenen Webseiten, Funktionen und Inhalte sowie externen Onlinepräsenzen, wie z.B. unser Social Media Profile auf (nachfolgend gemeinsam bezeichnet als „Onlineangebot“). Im Hinblick auf die verwendeten Begrifflichkeiten, wie z.B. „Verarbeitung“ oder „Verantwortlicher“ verweisen wir auf die Definitionen im Art. 4 der Datenschutzgrundverordnung (DSGVO). <br>
-<br>
-</p><h3 id="dsg-general-controller">Verantwortlicher</h3><p><span class="tsmcontroller">Vorname, Name / Firma<br>
-Straße, Hausnr.<br>
-PLZ, Ort, Land<br>
-E-Mailadresse: ....@....de<br>
-Geschäftsführer/ Inhaber: Vorname/n, Namen/n (sofern vorhanden)<br>
-Link zum Impressum: http://....de<br>
+<h3 id="dsg-general-intro"></h3><p>Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten (nachfolgend kurz „Daten“) im Rahmen der Erbringung unserer Leistungen sowie innerhalb unseres Onlineangebotes und der mit ihm verbundenen Webseiten, Funktionen und Inhalte sowie externen Onlinepräsenzen, wie z.B. unser Social Media Profile auf (nachfolgend gemeinsam bezeichnet als „Onlineangebot“). Im Hinblick auf die verwendeten Begrifflichkeiten, wie z.B. „Verarbeitung“ oder „Verantwortlicher“ verweisen wir auf die Definitionen im Art. 4 der Datenschutzgrundverordnung (DSGVO).
+
+</p>
+<h3 id="dsg-general-controller">Verantwortlicher</h3><p><span class="tsmcontroller">
+Ove Doll<br>
+Humboldstrasse 131<br>
+D-22083 Hamburg<br>
+E-Mailadresse: moin@ovedoll.de<br>
+
+Link zum Impressum: [Impressum](/impressum/)<br>
 Kontakt Datenschutzbeauftragte/r: ….@….de (sofern vorhanden)</span></p><h3 id="dsg-general-datatype">Arten der verarbeiteten Daten</h3><p>-	Bestandsdaten (z.B., Personen-Stammdaten, Namen oder Adressen).<br>
 -	Kontaktdaten (z.B., E-Mail, Telefonnummern).<br>
 -	Inhaltsdaten (z.B., Texteingaben, Fotografien, Videos).<br>

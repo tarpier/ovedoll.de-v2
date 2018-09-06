@@ -7,7 +7,6 @@ import Layout from '../components/layout'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    console.log('BlogPostTemplate')
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const siteDescription = post.excerpt

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import BottomNavigation from '../components/BottomNavigation'
 import 'typeface-rubik'
 
 import { Provider } from 'rebass'
@@ -68,6 +69,7 @@ class Template extends React.Component {
         <div>
           {header}
           {children}
+          <BottomNavigation />
         </div>
       </Provider>
     )

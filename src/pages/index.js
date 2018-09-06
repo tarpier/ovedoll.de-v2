@@ -38,7 +38,6 @@ class BlogIndex extends React.Component {
           )}
         />
         <Contact />
-        <BottomNavigation />
       </Layout>
     )
   }
