@@ -47,7 +47,6 @@ exports.createPages = ({ graphql, actions }) => {
           if (post.node.frontmatter.render === false) {
             return
           }
-          console.log(post)
           // resolve custom templates for pages
           const templatePath = path.resolve(
             `./src/templates/${
