@@ -53,7 +53,6 @@ module.exports = {
         ssr: true,
       },
     },
-    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
