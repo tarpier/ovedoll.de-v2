@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    title: 'Ove Doll Freelance Web Developer',
+    author: 'Ove Doll',
+    description:
+      'I am a freelance webdeveloper based in Hamburg, Germany. Come and work with me',
+    siteUrl: 'https://ovedoll.de',
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -21,7 +22,13 @@ module.exports = {
         name: 'images',
       },
     },
-
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/blogPosts`,
+        name: 'blogPosts',
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -54,17 +61,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
-    `gatsby-plugin-feed`,
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `ovedoll Freelance Web Developer`,
+        short_name: `ovedoll`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -75,11 +75,5 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
-    /* {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
-    }, */
   ],
 }
