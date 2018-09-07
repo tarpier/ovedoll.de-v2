@@ -35,7 +35,7 @@ const StyledInput = styled(Input)`
   padding: 15px 10px;
   margin-top: 10px;
   margin-bottom: 15px;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.2);
   font-size: 1rem;
   border: none;
   color: ${colors.fontColorLight};
@@ -61,7 +61,7 @@ const StyledTextArea = styled(Textarea)`
   padding: 15px 10px;
   margin-top: 10px;
   margin-bottom: 5px;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.2);
   font-size: 1rem;
   border: none;
   color: ${colors.fontColorLight};
