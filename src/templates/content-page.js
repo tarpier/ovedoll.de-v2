@@ -5,6 +5,11 @@ import get from 'lodash/get'
 
 import Layout from '../components/layout'
 import { Container } from '../components/HelperComponents'
+import styled from 'styled-components'
+
+const ContentContainer = styled.div`
+  min-height: 96vh;
+`
 
 class ContentPageTemplate extends React.Component {
   render() {
@@ -18,11 +23,13 @@ class ContentPageTemplate extends React.Component {
           meta={[{ name: 'description', content: 'Datenschutzerklärung' }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
-        <Container px={['10px', 20]} flexDirection={'column'}>
-          <h1>{post.frontmatter.title}</h1>
+        <ContentContainer>
+          <Container px={['10px', 20]} flexDirection={'column'}>
+            <h1>{post.frontmatter.title}</h1>
 
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </Container>
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          </Container>
+        </ContentContainer>
       </Layout>
     )
   }

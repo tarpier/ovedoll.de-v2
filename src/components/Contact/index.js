@@ -32,14 +32,17 @@ const ContactFormContainer = styled(Box)`
 
 const StyledInput = styled(Input)`
   width: 100%;
-  padding: 25px 0;
-  margin-bottom: 25px;
+  padding: 15px 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
   background: transparent;
   font-size: 1rem;
   border: none;
   color: ${colors.fontColorLight};
   border-bottom: 1px solid ${colors.inactive};
   transition: border-color 0.3s;
+  box-shadow: none;
+  border-radius: 0;
 
   &::placeholder {
     color: ${colors.inactive};
@@ -47,7 +50,7 @@ const StyledInput = styled(Input)`
 
   &:focus {
     border-bottom: 1px solid ${colors.primary};
-    outline: none;
+    outline: 1px solid ${colors.tertiary};
   }
 `
 
@@ -55,8 +58,9 @@ const StyledTextArea = styled(Textarea)`
   resize: vertical;
   overflow: auto;
   width: 100%;
-  padding: 25px 0;
-  margin-bottom: 25px;
+  padding: 15px 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   background: transparent;
   font-size: 1rem;
   border: none;
@@ -64,6 +68,9 @@ const StyledTextArea = styled(Textarea)`
   border-bottom: 1px solid ${colors.inactive};
   transition: border-color 0.3s;
   font-family: inherit;
+  box-shadow: none;
+  border-radius: 0;
+  min-height: 4em;
 
   &::placeholder {
     color: ${colors.inactive};
@@ -72,11 +79,12 @@ const StyledTextArea = styled(Textarea)`
 
   &:focus {
     border-bottom: 1px solid ${colors.primary};
-    outline: none;
+    outline: 1px solid ${colors.tertiary};
   }
 `
 const Form = styled.form`
   width: 100%;
+  padding: 10px 0 0 0;
 `
 
 const Contact = () => (
@@ -92,9 +100,15 @@ const Contact = () => (
           Don’t fill this out if you're human: <input name="bot-field" />
         </Honeypot>
 
-        <StyledInput type="text" name="sender_name" placeholder="your name" />
+        <StyledInput
+          type="text"
+          required={true}
+          name="sender_name"
+          placeholder="your name"
+        />
         <StyledInput
           type="email"
+          required={true}
           placeholder="you@adress.com"
           name="sender_email"
         />
