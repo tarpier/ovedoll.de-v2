@@ -35,7 +35,7 @@ const StyledInput = styled(Input)`
   padding: 15px 10px;
   margin-top: 10px;
   margin-bottom: 15px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
   font-size: 1rem;
   border: none;
   color: ${colors.fontColorLight};
@@ -61,7 +61,7 @@ const StyledTextArea = styled(Textarea)`
   padding: 15px 10px;
   margin-top: 10px;
   margin-bottom: 5px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
   font-size: 1rem;
   border: none;
   color: ${colors.fontColorLight};
@@ -99,13 +99,15 @@ const Contact = () => (
         <Honeypot>
           Don’t fill this out if you're human: <input name="bot-field" />
         </Honeypot>
+        <div>
+          <StyledInput
+            type="text"
+            required={true}
+            name="sender_name"
+            placeholder="your name"
+          />
+        </div>
 
-        <StyledInput
-          type="text"
-          required={true}
-          name="sender_name"
-          placeholder="your name"
-        />
         <StyledInput
           type="email"
           required={true}

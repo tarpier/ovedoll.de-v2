@@ -3,6 +3,12 @@ import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Container } from '../components/HelperComponents'
+import Layout from '../components/layout'
+import styled from 'styled-components'
+
+const ContentContainer = styled.div`
+  min-height: 96vh;
+`
 
 class BlogIndex extends React.Component {
   render() {
@@ -10,33 +16,37 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.blogPosts.edges')
 
     return (
-      <Container flexDirection={'column'}>
-        <Helmet title={siteTitle} />
+      <Layout location={this.props.location}>
+        <ContentContainer>
+          <Container flexDirection={'column'}>
+            <Helmet title={siteTitle} />
 
-        {posts.map(({ node }) => {
-          const title =
-            get(node.childMarkdownRemark, 'frontmatter.title') ||
-            node.childMarkdownRemark.fields.slug
-          return (
-            <div key={node.childMarkdownRemark.fields.slug}>
-              <h3 style={{}}>
-                <Link
-                  style={{ boxShadow: 'none' }}
-                  to={node.childMarkdownRemark.fields.slug}
-                >
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.childMarkdownRemark.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.childMarkdownRemark.excerpt,
-                }}
-              />
-            </div>
-          )
-        })}
-      </Container>
+            {posts.map(({ node }) => {
+              const title =
+                get(node.childMarkdownRemark, 'frontmatter.title') ||
+                node.childMarkdownRemark.fields.slug
+              return (
+                <div key={node.childMarkdownRemark.fields.slug}>
+                  <h3 style={{}}>
+                    <Link
+                      style={{ boxShadow: 'none' }}
+                      to={node.childMarkdownRemark.fields.slug}
+                    >
+                      {title}
+                    </Link>
+                  </h3>
+                  <small>{node.childMarkdownRemark.frontmatter.date}</small>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.childMarkdownRemark.excerpt,
+                    }}
+                  />
+                </div>
+              )
+            })}
+          </Container>
+        </ContentContainer>
+      </Layout>
     )
   }
 }

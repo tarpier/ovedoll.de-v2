@@ -54,6 +54,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        icon: true,
+        viewBox: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         displayName: true,

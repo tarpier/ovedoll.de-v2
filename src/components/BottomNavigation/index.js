@@ -1,9 +1,10 @@
 import React from 'react'
-import { Box } from 'rebass'
+import { Box, Image, Flex } from 'rebass'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import colors from '../../utils/colors'
 import { Container } from '../HelperComponents'
+import Logo from './doll-logo.min.svg'
 
 const OuterWrapper = styled(Box)`
   background-color: ${colors.primary};
@@ -30,16 +31,19 @@ const AvailabilityBox = styled(Box)`
   text-align: center;
 `
 
-const LogoBox = styled(Box)`
-  text-align: center;
+const LogoBox = styled(Flex)``
+
+const LogoImg = styled(Image)`
+  height: calc(4vh - 10px);
+  margin: 5px 0;
 `
 
 const BottomNavigation = () => (
   <OuterWrapper>
     <Container alignItems={'center'} flexDirection={['column', 'row']}>
-      <LogoBox width={[1, 1 / 3]}>
+      <LogoBox justifyContent={['center', 'initial']} width={[1, 1 / 3]}>
         <Link to={'/'}>
-          <p>LOGO</p>
+          <LogoImg src={Logo} />
         </Link>
       </LogoBox>
       <AvailabilityBox width={[1, 1 / 3]}>
