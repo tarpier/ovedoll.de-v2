@@ -8,7 +8,7 @@ import { Container } from '../components/HelperComponents'
 import styled from 'styled-components'
 
 const ContentContainer = styled.div`
-  min-height: 96vh;
+  min-height: 95vh;
 `
 
 class ContentPageTemplate extends React.Component {

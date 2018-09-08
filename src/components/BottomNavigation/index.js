@@ -46,7 +46,7 @@ const BottomNavigation = () => (
           <LogoImg src={Logo} />
         </Link>
       </LogoBox>
-      <AvailabilityBox width={[1, 1 / 3]}>
+      <AvailabilityBox py={['5px']} width={[1, 1 / 3]}>
         I am available starting: 17.09.18
       </AvailabilityBox>
       <Box width={[1, 1 / 3]}>

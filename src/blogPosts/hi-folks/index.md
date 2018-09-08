@@ -15,10 +15,10 @@ Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
 didn’t listen. She packed her seven versalia, put her initial into the belt and
 made herself on the way.
 
-* This however showed weasel
-* Well uncritical so misled
-  * this is very interesting
-* Goodness much until that fluid owl
+- This however showed weasel
+- Well uncritical so misled
+  - this is very interesting
+- Goodness much until that fluid owl
 
 When she reached the first hills of the **Italic Mountains**, she had a last
 view back on the skyline of her hometown _Bookmarksgrove_, the headline of
@@ -56,11 +56,28 @@ made herself on the way.
 4.  Rash opossum less because less some amid besides yikes jeepers frenetic
     impassive fruitlessly shut
 
-When she reached the first hills of the Italic Mountains, she had a last view
-back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-Village and the subline of her own road, the Line Lane. Pityful a rethoric
-question ran over her cheek, then she continued her way. On her way she met a
-copy.
+# HERE COMES THE CODE
+
+```jsx
+return (
+  <Layout location={this.props.location}>
+    <Helmet
+      htmlAttributes={{ lang: 'de' }}
+      meta={[{ name: 'description', content: 'Datenschutzerklärung' }]}
+      title={`${post.frontmatter.title} | ${siteTitle}`}
+    />
+    <ContentContainer>
+      <Container px={['10px', 20]} flexDirection={'column'}>
+        <h1>{post.frontmatter.title}</h1>
+
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      </Container>
+    </ContentContainer>
+  </Layout>
+)
+```
+
+# HERE ENDS THE CODE
 
 > The copy warned the Little Blind Text, that where it came from it would have
 > been rewritten a thousand times and everything that was left from its origin
