@@ -96,8 +96,8 @@ const Contact = () => (
           paddingTop: '10px',
         }}
         name="contact"
-        method="post"
-        data-netlify="true"
+        method="POST"
+        data-netlify={true}
         netlify-honeypot="bot-field"
       >
         <Honeypot>
