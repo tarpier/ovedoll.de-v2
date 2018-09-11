@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
-
+import { Container } from '../components/HelperComponents'
 import Layout from '../components/layout'
 
 class BlogPostTemplate extends React.Component {
@@ -19,42 +19,46 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            display: 'block',
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Container flexDirection={'column'}>
+          <h1>{post.frontmatter.title}</h1>
+          <p
+            style={{
+              display: 'block',
+              alignSelf: 'flex-end',
+            }}
+          >
+            {post.frontmatter.date}
+          </p>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </Container>
         <hr style={{}} />
+        <Container>
+          <ul
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              listStyle: 'none',
+              padding: 0,
+            }}
+          >
+            {previous && (
+              <li>
+                <Link to={previous.fields.slug} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              </li>
+            )}
 
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          {previous && (
-            <li>
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            </li>
-          )}
-
-          {next && (
-            <li>
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            </li>
-          )}
-        </ul>
+            {next && (
+              <li>
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              </li>
+            )}
+          </ul>
+        </Container>
       </Layout>
     )
   }

@@ -100,7 +100,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `ovedoll Freelance Web Developer`,
+        name: `Ove Dnoll Freelance Web Developer`,
         short_name: `ovedoll`,
         start_url: `/`,
         background_color: `#ffffff`,
