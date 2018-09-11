@@ -97,12 +97,12 @@ const Contact = () => (
         }}
         name="contact"
         method="POST"
-        data-netlify={true}
-        netlify-honeypot="bot-field"
+        netlify='netlify'
+        {/* netlify-honeypot="bot-field" */}
       >
-        <Honeypot>
+        {/* <Honeypot>
           Don’t fill this out if you're human: <input name="bot-field" />
-        </Honeypot>
+        </Honeypot> */}
         <div>
           <StyledInput
             type="text"
