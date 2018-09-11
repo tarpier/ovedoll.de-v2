@@ -135,6 +135,9 @@ export default class Contact extends React.PureComponent {
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
+            <Honeypot>
+              Don’t fill this out if you're human: <input name="bot-field" />
+            </Honeypot>
             <div>
               <StyledInput
                 type="text"
