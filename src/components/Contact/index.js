@@ -90,10 +90,14 @@ const Form = styled.form`
 const Contact = () => (
   <ContactFormContainer>
     <Container>
-      <Form
+      <form
+        style={{
+          width: '100%',
+          paddingTop: '10px',
+        }}
         name="contact"
         method="post"
-        netlify
+        data-netlify="true"
         netlify-honeypot="bot-field"
       >
         <Honeypot>
@@ -120,7 +124,7 @@ const Contact = () => (
         <Box>
           <Button type="submit" value="send" />
         </Box>
-      </Form>
+      </form>
     </Container>
   </ContactFormContainer>
 )
