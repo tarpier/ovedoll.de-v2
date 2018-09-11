@@ -2,6 +2,7 @@ import React from 'react'
 import { Input, Box, Textarea, Flex } from 'rebass'
 import styled from 'styled-components'
 import colors from '../../utils/colors'
+import { navigate } from 'gatsby'
 
 import { Container } from '../HelperComponents'
 
@@ -87,42 +88,85 @@ const Form = styled.form`
   padding: 10px 0 0 0;
 `
 
-const Contact = () => (
-  <ContactFormContainer>
-    <Container>
-      <form
-        style={{
-          width: '100%',
-          paddingTop: '10px',
-        }}
-        name="contact"
-        method="POST"
-        netlify="netlify"
-      >
-        <div>
-          <StyledInput
-            type="text"
-            required={true}
-            name="sender_name"
-            placeholder="your name"
-          />
-        </div>
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
 
-        <StyledInput
-          type="email"
-          required={true}
-          placeholder="you@adress.com"
-          name="sender_email"
-        />
+export default class Contact extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
 
-        <StyledTextArea placeholder="your message" rows={4} type="plaintext" />
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
-        <Box>
-          <Button type="submit" value="send" />
-        </Box>
-      </form>
-    </Container>
-  </ContactFormContainer>
-)
+  handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch(error => alert(error))
+  }
 
-export default Contact
+  render() {
+    return (
+      <ContactFormContainer>
+        <Container>
+          <form
+            style={{
+              width: '100%',
+              paddingTop: '10px',
+            }}
+            name="contactForm"
+            method="post"
+            action="/submission-success/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={this.handleSubmit}
+          >
+            <div>
+              <StyledInput
+                type="text"
+                required={true}
+                name="sender_name"
+                placeholder="your name"
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <StyledInput
+              type="email"
+              required={true}
+              placeholder="you@adress.com"
+              name="sender_email"
+              onChange={this.handleChange}
+            />
+
+            <StyledTextArea
+              placeholder="your message"
+              rows={4}
+              type="plaintext"
+              name="sender_message"
+              onChange={this.handleChange}
+            />
+
+            <Box>
+              <Button type="submit" value="send" />
+            </Box>
+          </form>
+        </Container>
+      </ContactFormContainer>
+    )
+  }
+}

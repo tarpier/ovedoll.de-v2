@@ -93,8 +93,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        displayName: true,
-        ssr: true,
+        displayName: false,
       },
     },
     {
