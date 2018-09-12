@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: tarpier/ovedoll.de-v2
   branch: feature/netlify-cms
 
