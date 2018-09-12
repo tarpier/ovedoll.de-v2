@@ -22,6 +22,9 @@ class BlogIndex extends React.Component {
             <Helmet title={siteTitle} />
 
             {posts.map(({ node }) => {
+              if (get(node.childMarkdownRemark, 'frontmatter.private')) {
+                return false
+              }
               const title =
                 get(node.childMarkdownRemark, 'frontmatter.title') ||
                 node.childMarkdownRemark.fields.slug
@@ -74,6 +77,7 @@ export const pageQuery = graphql`
               slug
             }
             frontmatter {
+              private
               date(formatString: "DD MMMM, YYYY")
               title
             }
