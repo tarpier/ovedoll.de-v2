@@ -3,7 +3,7 @@ backend:
   repo: tarpier/ovedoll.de-v2
   branch: feature/netlify-cms
 
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 
 media_folder: 'static/images' # Folder where user uploaded files should go
 public_folder: 'images'
@@ -11,21 +11,27 @@ public_folder: 'images'
 collections:
   - name: 'blog'
     label: 'Blog'
-    folder: 'src/pages/blog'
+    folder: 'src/blogPosts'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
       - {
           label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
+          name: 'template',
+          widget: 'string',
           default: 'blog-post',
+        }
+      - {
+          label: 'Private',
+          name: 'private',
+          widget: 'boolean',
+          default: true,
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'text' }
+      # - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      # - { label: 'Tags', name: 'tags', widget: 'list' }
 
   - name: 'pages'
     label: 'Pages'
