@@ -99,7 +99,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Ove Dnoll Freelance Web Developer`,
+        name: `Ove Doll Freelance Web Developer`,
         short_name: `ovedoll`,
         start_url: `/`,
         background_color: `#ffffff`,
@@ -111,5 +111,6 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
+    `gatsby-plugin-netlify-cms`,
   ],
 }
