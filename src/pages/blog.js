@@ -28,24 +28,17 @@ class BlogIndex extends React.Component {
               const title =
                 get(node.childMarkdownRemark, 'frontmatter.title') ||
                 node.childMarkdownRemark.fields.slug
-              return (
-                <div key={node.childMarkdownRemark.fields.slug}>
-                  <h3 style={{}}>
-                    <Link
-                      style={{ boxShadow: 'none' }}
-                      to={node.childMarkdownRemark.fields.slug}
-                    >
-                      {title}
-                    </Link>
-                  </h3>
-                  <small>{node.childMarkdownRemark.frontmatter.date}</small>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.childMarkdownRemark.excerpt,
-                    }}
-                  />
-                </div>
-              )
+              const date =
+                get(node.childMarkdownRemark, 'frontmatter.date') || 'someday'
+              const excerpt = get(node.childMarkdownRemark, 'excerpt') || ''
+              return {
+                /* <BlogPostLinkListItem
+                  slug={node.childMarkdownRemark.fields.slug}
+                  date={date}
+                  title={title}
+                  excerpt={excerpt}
+                /> */
+              }
             })}
           </Container>
         </ContentContainer>
