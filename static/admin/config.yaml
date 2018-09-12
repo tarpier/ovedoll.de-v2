@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: tarpier/ovedoll.de-v2
-  branch: master
+  branch: feature/netlify-cms
 
 publish_mode: editorial_workflow
 
