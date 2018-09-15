@@ -1,10 +1,10 @@
 {
   "name": "gatsby-starter-blog",
-  "description": "Starter Gatsby Blog",
+  "description": "ovedoll.de",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Ove Doll",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
+    "url": "https://github.com/tarpier/de.ovedoll-v2/issues"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.6.0",
