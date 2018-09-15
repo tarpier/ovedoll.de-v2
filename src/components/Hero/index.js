@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Typed from 'react-typed'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
-import { Box, Flex } from 'rebass'
+import { Flex } from 'rebass'
 import { Container } from '../HelperComponents'
 
 const HeroOutsideContainer = styled.div`
