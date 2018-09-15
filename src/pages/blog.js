@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import { Container } from '../components/HelperComponents'
 import Layout from '../components/layout'
 import styled from 'styled-components'
+import BlogPostLinkListItem from '../components/BlogPostLinkListItem'
 
 const ContentContainer = styled.div`
   min-height: 96vh;
@@ -31,14 +32,16 @@ class BlogIndex extends React.Component {
               const date =
                 get(node.childMarkdownRemark, 'frontmatter.date') || 'someday'
               const excerpt = get(node.childMarkdownRemark, 'excerpt') || ''
-              return {
-                /* <BlogPostLinkListItem
+
+              return (
+                <BlogPostLinkListItem
+                  key={node.childMarkdownRemark.fields.slug}
                   slug={node.childMarkdownRemark.fields.slug}
                   date={date}
                   title={title}
                   excerpt={excerpt}
-                /> */
-              }
+                />
+              )
             })}
           </Container>
         </ContentContainer>

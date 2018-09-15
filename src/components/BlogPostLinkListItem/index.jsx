@@ -1,18 +1,30 @@
-// TODO: build component
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
-// ;<div key={node.childMarkdownRemark.fields.slug}>
-//   <h3 style={{}}>
-//     <Link
-//       style={{ boxShadow: 'none' }}
-//       to={node.childMarkdownRemark.fields.slug}
-//     >
-//       {title}
-//     </Link>
-//   </h3>
-//   <small>{node.childMarkdownRemark.frontmatter.date}</small>
-//   <p
-//     dangerouslySetInnerHTML={{
-//       __html: node.childMarkdownRemark.excerpt,
-//     }}
-//   />
-// </div>
+const BlogPostLinkListItem = ({ slug, date, excerpt, title }) => {
+  return (
+    <div>
+      <h3 style={{}}>
+        <Link style={{ boxShadow: 'none' }} to={slug}>
+          {title}
+        </Link>
+      </h3>
+      <small>{date}</small>
+      <p
+        dangerouslySetInnerHTML={{
+          __html: excerpt,
+        }}
+      />
+    </div>
+  )
+}
+
+BlogPostLinkListItem.propTypes = {
+  slug: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  excerpt: PropTypes.string,
+  title: PropTypes.string,
+}
+
+export default BlogPostLinkListItem
