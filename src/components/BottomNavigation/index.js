@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Image, Flex } from 'rebass'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import AvailabilityComponent from '../AvailabilityComponent'
 import colors from '../../utils/colors'
 import { Container } from '../HelperComponents'
 import Logo from './doll-logo.min.svg'
@@ -39,9 +40,7 @@ const BottomNavLink = styled(Link)`
   color: ${colors.fontColor};
 `
 
-const AvailabilityBox = styled(Box)`
-  text-align: center;
-`
+
 
 const LogoImg = styled(Image)`
   height: calc(4em - 10px);
@@ -52,9 +51,7 @@ const BottomNavigation = () => (
   <OuterWrapper>
     <Container alignItems={'center'} flexDirection={['column', 'row']}>
       <Flex width={[1, 1 / 2]}>
-        {/* <AvailabilityBox py={['5px']} width={[1, 1 / 3]}>
-        I am available starting: 17.09.18
-      </AvailabilityBox> */}
+       <AvailabilityComponent />
       </Flex>
 
       <Flex
