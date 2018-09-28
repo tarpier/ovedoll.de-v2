@@ -7,10 +7,6 @@ import Layout from '../components/layout'
 import { Container } from '../components/HelperComponents'
 import styled from 'styled-components'
 
-const ContentContainer = styled.div`
-  min-height: 95vh;
-`
-
 class ContentPageTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -23,13 +19,12 @@ class ContentPageTemplate extends React.Component {
           meta={[{ name: 'description', content: 'Datenschutzerklärung' }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
-        <ContentContainer>
-          <Container px={['10px', 20]} flexDirection={'column'}>
-            <h1>{post.frontmatter.title}</h1>
 
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          </Container>
-        </ContentContainer>
+        <Container px={['10px', 20]} flexDirection={'column'}>
+          <h1>{post.frontmatter.title}</h1>
+
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </Container>
       </Layout>
     )
   }

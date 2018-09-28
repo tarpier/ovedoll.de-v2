@@ -7,10 +7,6 @@ import Layout from '../components/layout'
 import styled from 'styled-components'
 import BlogPostLinkListItem from '../components/BlogPostLinkListItem'
 
-const ContentContainer = styled.div`
-  min-height: 96vh;
-`
-
 class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -18,33 +14,31 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <ContentContainer>
-          <Container flexDirection={'column'}>
-            <Helmet title={siteTitle} />
+        <Container flexDirection={'column'}>
+          <Helmet title={siteTitle} />
 
-            {posts.map(({ node }) => {
-              if (get(node.childMarkdownRemark, 'frontmatter.private')) {
-                return false
-              }
-              const title =
-                get(node.childMarkdownRemark, 'frontmatter.title') ||
-                node.childMarkdownRemark.fields.slug
-              const date =
-                get(node.childMarkdownRemark, 'frontmatter.date') || 'someday'
-              const excerpt = get(node.childMarkdownRemark, 'excerpt') || ''
+          {posts.map(({ node }) => {
+            if (get(node.childMarkdownRemark, 'frontmatter.private')) {
+              return false
+            }
+            const title =
+              get(node.childMarkdownRemark, 'frontmatter.title') ||
+              node.childMarkdownRemark.fields.slug
+            const date =
+              get(node.childMarkdownRemark, 'frontmatter.date') || 'someday'
+            const excerpt = get(node.childMarkdownRemark, 'excerpt') || ''
 
-              return (
-                <BlogPostLinkListItem
-                  key={node.childMarkdownRemark.fields.slug}
-                  slug={node.childMarkdownRemark.fields.slug}
-                  date={date}
-                  title={title}
-                  excerpt={excerpt}
-                />
-              )
-            })}
-          </Container>
-        </ContentContainer>
+            return (
+              <BlogPostLinkListItem
+                key={node.childMarkdownRemark.fields.slug}
+                slug={node.childMarkdownRemark.fields.slug}
+                date={date}
+                title={title}
+                excerpt={excerpt}
+              />
+            )
+          })}
+        </Container>
       </Layout>
     )
   }
