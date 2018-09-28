@@ -8,6 +8,7 @@ const Container = styled(Flex)`
 
 Container.defaultProps = {
   mx: 'auto',
+  px: ['10px', 0],
 }
 
 export { Container }

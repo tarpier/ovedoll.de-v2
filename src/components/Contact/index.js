@@ -28,7 +28,7 @@ const Button = styled.input`
 `
 
 const ContactFormContainer = styled(Box)`
-  background-color: ${colors.tertiary};
+  background-color: ${colors.backgroundDark};
 `
 
 const StyledInput = styled(Input)`
@@ -51,7 +51,8 @@ const StyledInput = styled(Input)`
 
   &:focus {
     border-bottom: 1px solid ${colors.primary};
-    outline: 1px solid ${colors.tertiary};
+    outline: 1px solid ${colors.primary};
+    box-shadow: none;
   }
 `
 
@@ -80,7 +81,8 @@ const StyledTextArea = styled(Textarea)`
 
   &:focus {
     border-bottom: 1px solid ${colors.primary};
-    outline: 1px solid ${colors.tertiary};
+    outline: 1px solid ${colors.primary};
+    box-shadow: none;
   }
 `
 const Form = styled.form`

@@ -9,6 +9,13 @@ import Logo from './doll-logo.min.svg'
 const OuterWrapper = styled(Box)`
   background-color: ${colors.primary};
   color: ${colors.fontColor};
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(90deg, #63c7b2 0.01%, #80ced7 99.99%), #80ced7;
+  background-blend-mode: screen, normal, normal;
 `
 
 const links = [
@@ -19,9 +26,14 @@ const links = [
 const LinkList = styled.ul`
   list-style: none;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
   padding-left: 0;
+  text-align: right;
+  font-size: 0.9em;
+
+  & li {
+    padding: 3px 0;
+  }
 `
 const BottomNavLink = styled(Link)`
   color: ${colors.fontColor};
@@ -31,25 +43,30 @@ const AvailabilityBox = styled(Box)`
   text-align: center;
 `
 
-const LogoBox = styled(Flex)``
-
 const LogoImg = styled(Image)`
-  height: calc(4vh - 10px);
-  margin: 5px 0;
+  height: calc(4em - 10px);
+  margin: 10px 0;
 `
 
 const BottomNavigation = () => (
   <OuterWrapper>
     <Container alignItems={'center'} flexDirection={['column', 'row']}>
-      <LogoBox justifyContent={['center', 'initial']} width={[1, 1 / 3]}>
-        <Link to={'/'}>
-          <LogoImg src={Logo} />
-        </Link>
-      </LogoBox>
-      <AvailabilityBox py={['5px']} width={[1, 1 / 3]}>
+      <Flex width={[1, 1 / 2]}>
+        {/* <AvailabilityBox py={['5px']} width={[1, 1 / 3]}>
         I am available starting: 17.09.18
-      </AvailabilityBox>
-      <Box width={[1, 1 / 3]}>
+      </AvailabilityBox> */}
+      </Flex>
+
+      <Flex
+        justifyContent={['center', 'flex-end']}
+        width={[1, 1 / 2]}
+        flexDirection={'column'}
+      >
+        <Flex justifyContent={['center', 'flex-end']}>
+          <Link to={'/'}>
+            <LogoImg src={Logo} />
+          </Link>
+        </Flex>
         <LinkList>
           {links.map(link => (
             <li key={link.name}>
@@ -57,7 +74,7 @@ const BottomNavigation = () => (
             </li>
           ))}
         </LinkList>
-      </Box>
+      </Flex>
     </Container>
   </OuterWrapper>
 )
