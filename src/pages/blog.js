@@ -6,6 +6,7 @@ import { Container } from '../components/HelperComponents'
 import Layout from '../components/layout'
 import styled from 'styled-components'
 import BlogPostLinkListItem from '../components/BlogPostLinkListItem'
+import SubPageHeader from '../components/SubPageHeader'
 
 class BlogIndex extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class BlogIndex extends React.Component {
         <Container flexDirection={'column'}>
           <Helmet title={siteTitle} />
 
+          <SubPageHeader title={'Blog'} />
           {posts.map(({ node }) => {
             if (get(node.childMarkdownRemark, 'frontmatter.private')) {
               return false

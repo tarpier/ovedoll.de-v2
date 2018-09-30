@@ -40,8 +40,6 @@ const BottomNavLink = styled(Link)`
   color: ${colors.fontColor};
 `
 
-
-
 const LogoImg = styled(Image)`
   height: calc(4em - 10px);
   margin: 10px 0;
@@ -50,9 +48,7 @@ const LogoImg = styled(Image)`
 const BottomNavigation = () => (
   <OuterWrapper>
     <Container alignItems={'center'} flexDirection={['column', 'row']}>
-      <Flex width={[1, 1 / 2]}>
-       <AvailabilityComponent />
-      </Flex>
+      <Flex width={[1, 1 / 2]}>{/* <AvailabilityComponent /> */}</Flex>
 
       <Flex
         justifyContent={['center', 'flex-end']}
