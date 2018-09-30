@@ -133,8 +133,8 @@ export default class Contact extends React.PureComponent {
             name="contactForm"
             method="post"
             action="/submission-success/"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
+            netlify="true"
+            netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
             <Honeypot>
