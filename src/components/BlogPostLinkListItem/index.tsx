@@ -1,8 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-const BlogPostLinkListItem = ({ slug, date, excerpt, title }) => {
+type Props = {
+  slug: string
+  date: string
+  excerpt?: string
+  title?: string
+}
+
+const BlogPostLinkListItem = ({ slug, date, excerpt, title }: Props) => {
   return (
     <div>
       <h3 style={{}}>
@@ -18,13 +24,6 @@ const BlogPostLinkListItem = ({ slug, date, excerpt, title }) => {
       />
     </div>
   )
-}
-
-BlogPostLinkListItem.propTypes = {
-  slug: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  excerpt: PropTypes.string,
-  title: PropTypes.string,
 }
 
 export default BlogPostLinkListItem

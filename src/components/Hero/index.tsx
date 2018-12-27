@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Typed from 'react-typed'
 import Img from 'gatsby-image'
-import PropTypes from 'prop-types'
-import { Box, Flex } from 'rebass'
+import { Flex } from 'rebass'
 import { Container } from '../HelperComponents'
+import { GatsbyImage } from '../../interfaces'
 
 const HeroOutsideContainer = styled.div`
   overflow: hidden;
@@ -33,7 +33,13 @@ const ClaimContainer = styled.p`
   text-align: left;
   z-index: 1;
 `
-const Hero = ({ typeStrings, heroImage }) => (
+
+type Props = {
+  typeStrings: string[]
+  heroImage: GatsbyImage
+}
+
+const Hero = ({ typeStrings, heroImage }: Props) => (
   <HeroOutsideContainer>
     <HeroInsideContainer>
       <Container flexDirection={'column'}>
@@ -67,8 +73,4 @@ const Hero = ({ typeStrings, heroImage }) => (
   </HeroOutsideContainer>
 )
 
-Hero.propTypes = {
-  typeStrings: PropTypes.arrayOf(PropTypes.string),
-  heroImage: PropTypes.object,
-}
 export default Hero

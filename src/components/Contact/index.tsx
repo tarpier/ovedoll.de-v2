@@ -6,11 +6,6 @@ import { navigate } from 'gatsby'
 
 import { Container } from '../HelperComponents'
 
-const Honeypot = styled.label`
-  display: none;
-  visibility: hidden;
-`
-
 const Button = styled.input`
   font-weight: 700;
   background-color: transparent;

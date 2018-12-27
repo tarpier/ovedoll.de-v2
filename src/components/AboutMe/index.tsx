@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Container } from '../HelperComponents'
+import { GatsbyImage } from '../../interfaces'
 
 const Avatar = styled.div`
   border-radius: 25px;
@@ -15,7 +16,12 @@ const ImageContainer = styled(Image)`
   width: 22em;
 `
 
-const AboutMe = ({ aboutContent, profileImage } = props) => (
+type Props = {
+  aboutContent: string
+  profileImage: GatsbyImage
+}
+
+const AboutMe = ({ aboutContent, profileImage }: Props) => (
   <Container flexWrap="wrap" flexDirection={['column-reverse', 'row']}>
     <Box px={'5px'} width={[1, 1 / 2]}>
       <Box py={[0, 30]} dangerouslySetInnerHTML={{ __html: aboutContent }} />
@@ -25,10 +31,5 @@ const AboutMe = ({ aboutContent, profileImage } = props) => (
     </Box>
   </Container>
 )
-
-AboutMe.propTypes = {
-  aboutContent: PropTypes.string,
-  profileImage: PropTypes.object,
-}
 
 export default AboutMe

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import BottomNavigation from '../components/BottomNavigation'
+import BottomNavigation from './BottomNavigation'
 import 'typeface-rubik'
+import Header from './Header'
 
 import { Provider, Flex } from 'rebass'
 import styled, { injectGlobal } from 'styled-components'
@@ -30,6 +31,7 @@ class Template extends React.Component {
     return (
       <Provider>
         <PageWrapper>
+          <Header />
           <ContentWrapper>{children}</ContentWrapper>
           <BottomNavigation />
         </PageWrapper>

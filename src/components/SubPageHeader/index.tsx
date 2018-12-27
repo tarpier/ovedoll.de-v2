@@ -1,9 +1,12 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'gatsby'
 import { Flex } from 'rebass'
-import PropTypes from 'prop-types'
 
-class SubPageHeader extends PureComponent {
+type Props = {
+  title: string
+}
+
+class SubPageHeader extends PureComponent<Props, {}> {
   render() {
     return (
       <Flex pt={30}>
@@ -27,10 +30,6 @@ class SubPageHeader extends PureComponent {
       </Flex>
     )
   }
-}
-
-SubPageHeader.propTypes = {
-  title: PropTypes.string.isRequired,
 }
 
 export default SubPageHeader
