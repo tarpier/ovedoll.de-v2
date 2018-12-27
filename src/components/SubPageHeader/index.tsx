@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'gatsby'
 import { Flex } from 'rebass'
+import { colors } from '../../utils'
 
 type Props = {
   title: string
@@ -14,6 +15,7 @@ class SubPageHeader extends PureComponent<Props, {}> {
           style={{
             fontFamily: 'Montserrat, sans-serif',
             marginTop: 0,
+            color: colors.fontColor,
           }}
         >
           <Link

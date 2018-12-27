@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Container } from '../components/HelperComponents'
 import Layout from '../components/layout'
+import { colors } from '../utils'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -18,7 +19,11 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
-        <Container flexDirection={'column'} pb={'50px'}>
+        <Container
+          flexDirection={'column'}
+          pb={'50px'}
+          style={{ color: colors.fontColor }}
+        >
           <h1>{post.frontmatter.title}</h1>
           <p
             style={{

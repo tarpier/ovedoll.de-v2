@@ -1,6 +1,8 @@
 ---
 title: List globally installed NPM Packages
 date: "2018-09-09"
+private: false
+template:
 ---
 
 One thing I keep googling is how to list my global npm modules. So for everybody who keeps forgetting this one-liner like me, here we go.

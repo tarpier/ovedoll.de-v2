@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import BottomNavigation from './BottomNavigation'
 import 'typeface-rubik'
 import Header from './Header'
