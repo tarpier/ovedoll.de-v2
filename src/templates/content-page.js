@@ -5,7 +5,6 @@ import get from 'lodash/get'
 
 import Layout from '../components/layout'
 import { Container } from '../components/HelperComponents'
-import styled from 'styled-components'
 
 class ContentPageTemplate extends React.Component {
   render() {

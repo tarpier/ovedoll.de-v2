@@ -15,7 +15,7 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Container flexDirection={'column'}>
+        <Container flexDirection={'column'} pb={'50px'}>
           <Helmet title={siteTitle} />
 
           <SubPageHeader title={'Blog'} />

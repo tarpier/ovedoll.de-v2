@@ -87,14 +87,18 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
-        icon: true,
-        viewBox: false,
+        prettier: true,
+        svgo: true,
+        svgoConfig: {
+          removeViewBox: true,
+          cleanupIDs: true,
+        },
       },
     },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        displayName: false,
+        displayName: true,
       },
     },
     {

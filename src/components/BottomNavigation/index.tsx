@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import colors from '../../utils/colors'
 import { Container } from '../HelperComponents'
-import Logo from './doll-logo.min.svg'
+import { ReactComponent as Logo } from '../../assets/doll-logo.svg'
 
 const OuterWrapper = styled(Box)`
   background-color: ${colors.primary};
@@ -39,11 +39,6 @@ const BottomNavLink = styled(Link)`
   color: ${colors.fontColor};
 `
 
-const LogoImg = styled(Image)`
-  height: calc(4em - 10px);
-  margin: 10px 0;
-`
-
 const BottomNavigation = () => (
   <OuterWrapper>
     <Container alignItems={'center'} flexDirection={['column', 'row']}>
@@ -54,9 +49,9 @@ const BottomNavigation = () => (
         width={[1, 1 / 2]}
         flexDirection={'column'}
       >
-        <Flex justifyContent={['center', 'flex-end']}>
+        <Flex justifyContent={['center', 'flex-end']} pt={'10px'}>
           <Link to={'/'}>
-            <LogoImg src={Logo} />
+            <Logo />
           </Link>
         </Flex>
         <LinkList>
