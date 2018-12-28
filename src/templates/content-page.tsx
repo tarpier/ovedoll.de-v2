@@ -6,7 +6,27 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import { Container } from '../components/HelperComponents'
 
-class ContentPageTemplate extends React.Component {
+type Props = {
+  data: {
+    markdownRemark: {
+      id: string
+      html: string
+      frontmatter: {
+        title: string
+        date: string
+      }
+    }
+    site: {
+      siteMetadata: {
+        title: string
+        author: string
+      }
+    }
+  }
+  location: any
+}
+
+class ContentPageTemplate extends React.Component<Props, {}> {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
