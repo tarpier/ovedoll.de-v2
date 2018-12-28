@@ -6,7 +6,30 @@ import { Container } from '../components/HelperComponents'
 import Layout from '../components/layout'
 import { colors } from '../utils'
 
-class BlogPostTemplate extends React.Component {
+type markDownRemarkProps = {
+  id: string
+  excerpt: string
+  html: string
+  frontmatter: {
+    title: string
+    date: string
+  }
+}
+
+type Props = {
+  data: {
+    markdownRemark: markDownRemarkProps
+    site: {
+      siteMetadata: {
+        author: string
+        title: string
+      }
+    }
+  }
+  location: any
+}
+
+class BlogPostTemplate extends React.Component<Props, {}> {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')

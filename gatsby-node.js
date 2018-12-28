@@ -53,7 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
               _.get(post, 'node.frontmatter.template')
                 ? post.node.frontmatter.template
                 : 'blog-post'
-            }.js`
+            }.tsx`
           )
 
           createPage({
