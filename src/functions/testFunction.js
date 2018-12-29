@@ -5,10 +5,24 @@ const querystring = require('querystring')
 exports.handler = (event, context, callback) => {
   const params = querystring.parse(event.body)
 
+  // Honeypot
+  if (params.sender_trap) {
+    var response = {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: 'Forbidden',
+    }
+
+    callback(null, response)
+    return false
+  }
+
+  const name = params.sender_name.replace(/(<([^>]+)>)/gi, '')
+  const email = params.sender_email.replace(/(<([^>]+)>)/gi, '')
+  const message = params.sender_message.replace(/(<([^>]+)>)/gi, '')
+
   var post_data = JSON.stringify({
-    text: `Message sent by ${params.sender_name} (${params.sender_email}):\n ${
-      params.sender_message
-    }`,
+    text: `Message sent by ${name} (${email}):\n ${message}`,
   })
 
   // An object of options to indicate where to post to

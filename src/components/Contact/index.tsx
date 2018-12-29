@@ -85,6 +85,10 @@ const Form = styled.form`
   padding: 10px 0 0 0;
 `
 
+const Honeypot = styled.input`
+  visibility: hidden;
+`
+
 const encode = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -104,7 +108,7 @@ export default class Contact extends React.PureComponent {
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
-    fetch('http://localhost:9000/.netlify/functions/testFunction', {
+    fetch('/.netlify/functions/testFunction', {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -129,14 +133,14 @@ export default class Contact extends React.PureComponent {
             name="contactForm"
             method="post"
             action="/submission-success/"
-            netlify="true"
-            netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
-            {/* <Honeypot>
-              Don’t fill this out if you're human: <input name="bot-field" />
-            </Honeypot> */}
-            <input hidden className="hidden" name="bot-field" />
+            <Honeypot
+              type="text"
+              name="sender_trap"
+              onChange={this.handleChange}
+            />
+
             <div>
               <StyledInput
                 type="text"
