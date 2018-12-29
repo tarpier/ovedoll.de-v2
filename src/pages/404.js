@@ -2,7 +2,6 @@ import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Container } from '../components/HelperComponents'
-import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 

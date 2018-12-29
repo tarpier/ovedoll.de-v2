@@ -1,15 +1,1 @@
-const querystring = require('querystring')
-
-exports.handler = async (event, context, callback) => {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' }
-  }
-
-  const params = querystring.parse(event.body)
-  const name = params.name || 'World'
-
-  return {
-    statusCode: 200,
-    body: `Hello, ${name}`,
-  }
-}
+!function(n,e){for(var t in e)n[t]=e[t]}(exports,function(n){var e={};function t(o){if(e[o])return e[o].exports;var r=e[o]={i:o,l:!1,exports:{}};return n[o].call(r.exports,r,r.exports,t),r.l=!0,r.exports}return t.m=n,t.c=e,t.d=function(n,e,o){t.o(n,e)||Object.defineProperty(n,e,{enumerable:!0,get:o})},t.r=function(n){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(n,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(n,"__esModule",{value:!0})},t.t=function(n,e){if(1&e&&(n=t(n)),8&e)return n;if(4&e&&"object"==typeof n&&n&&n.__esModule)return n;var o=Object.create(null);if(t.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:n}),2&e&&"string"!=typeof n)for(var r in n)t.d(o,r,function(e){return n[e]}.bind(null,r));return o},t.n=function(n){var e=n&&n.__esModule?function(){return n.default}:function(){return n};return t.d(e,"a",e),e},t.o=function(n,e){return Object.prototype.hasOwnProperty.call(n,e)},t.p="",t(t.s=0)}([function(n,e,t){"use strict";var o=t(1);t(2).config();const r=t(5);e.handler=((n,e,t)=>{const s=r.parse(n.body);if(s.sender_trap)return t(null,{statusCode:500,headers:{"Content-Type":"application/json"},body:"Forbidden"}),!1;const i=s.sender_name.replace(/(<([^>]+)>)/gi,""),c=s.sender_email.replace(/(<([^>]+)>)/gi,""),p=s.sender_message.replace(/(<([^>]+)>)/gi,"");var d=JSON.stringify({text:`Message sent by ${i} (${c}):\n ${p}`}),f={host:"hooks.slack.com",port:"443",path:`${process.env.SLACK}`,method:"POST",headers:{"Content-Type":"application/json","Content-Length":Buffer.byteLength(d)}},a=o.request(f,function(n){n.setEncoding("utf8"),n.on("data",function(n){console.log("Response: "+n)})});a.write(d),a.end();t(null,{statusCode:200,headers:{"Content-Type":"application/json"},body:JSON.stringify({one:"44",two:{details:"Some details",another:"More details"}})})})},function(n,e){n.exports=require("https")},function(n,e,t){const o=t(3),r=t(4);function s(n){console.log(`[dotenv][DEBUG] ${n}`)}function i(n,e){const t=Boolean(e&&e.debug),o={};return n.toString().split("\n").forEach(function(n,e){const r=n.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);if(null!=r){const n=r[1];let e=r[2]||"";const t=e?e.length:0;t>0&&'"'===e.charAt(0)&&'"'===e.charAt(t-1)&&(e=e.replace(/\\n/gm,"\n")),e=e.replace(/(^['"]|['"]$)/g,"").trim(),o[n]=e}else t&&s(`did not match key and value when parsing line ${e+1}: ${n}`)}),o}function c(n){let e=r.resolve(process.cwd(),".env"),t="utf8",c=!1;n&&(null!=n.path&&(e=n.path),null!=n.encoding&&(t=n.encoding),null!=n.debug&&(c=!0));try{const n=i(o.readFileSync(e,{encoding:t}),{debug:c});return Object.keys(n).forEach(function(e){process.env.hasOwnProperty(e)?c&&s(`"${e}" is already defined in \`process.env\` and will not be overwritten`):process.env[e]=n[e]}),{parsed:n}}catch(n){return{error:n}}}n.exports.config=c,n.exports.load=c,n.exports.parse=i},function(n,e){n.exports=require("fs")},function(n,e){n.exports=require("path")},function(n,e){n.exports=require("querystring")}]));

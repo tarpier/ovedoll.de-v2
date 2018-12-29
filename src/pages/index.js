@@ -37,7 +37,7 @@ class BlogIndex extends React.Component {
             'props.data.profilePic.childImageSharp.fluid'
           )}
         />
-        {/* <Contact /> */}
+        <Contact />
       </Layout>
     )
   }
