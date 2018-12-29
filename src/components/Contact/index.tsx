@@ -104,8 +104,9 @@ export default class Contact extends React.PureComponent {
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
-    fetch('/', {
+    fetch('http://localhost:9000/.netlify/functions/testFunction', {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
