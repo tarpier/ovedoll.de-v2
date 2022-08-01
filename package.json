@@ -34,7 +34,7 @@
     "lodash": "^4.17.5",
     "netlify-cms": "^2.1.1",
     "netlify-lambda": "^1.1.1",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^3.2.10",
     "prismjs": "^1.15.0",
     "querystring": "^0.2.0",
     "react": "^16.4.2",
