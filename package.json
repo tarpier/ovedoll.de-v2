@@ -13,7 +13,7 @@
     "gatsby-image": "^1.0.55",
     "gatsby-plugin-catch-links": "^1.0.24",
     "gatsby-plugin-feed": "next",
-    "gatsby-plugin-google-analytics": "^2.0.0-rc.2",
+    "gatsby-plugin-google-analytics": "^5.1.0",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-netlify-cms": "^3.0.0-rc.5",
     "gatsby-plugin-offline": "^2.0.0-rc.9",
